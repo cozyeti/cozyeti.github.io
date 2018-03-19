@@ -35,7 +35,7 @@
 				scene = new THREE.Scene();
 				
 				
-				// paste your code from the geometryGUI here
+				
 				geometry = new THREE.TorusKnotGeometry(184.33, 37.67, 9, 16, 6.2, 1.3, 1);
 material = new THREE.MeshNormalMaterial({shading: THREE.FlatShading, side: THREE.BackSide});
 mesh = new THREE.Mesh(geometry, material);
@@ -48,7 +48,7 @@ scene.add(mesh);
 
 				requestAnimationFrame( draw );
 				
-				// experiment with code from the snippets menu here
+				
 			mesh.position.x = Math.sin( Date.now() * 0.002 ) * 700;  
 				mesh.rotation.z = Date.now() * 0.0008;
 				
