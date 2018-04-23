@@ -213,9 +213,11 @@
 
         </script>
         <div id="container">
-   <div id="header"></div>
-   <div id="body"></div>
-   <div id="footer"></div>
+           <div id="header"></div>
+           <div id="body"></div>
+           <div id="footer"></div>
+
+           html,
 body {
    margin:0;
    padding:0;
@@ -232,8 +234,7 @@ body {
 #body {
    padding:10px;
    padding-bottom:60px;   /* Height of the footer */
-   background-color: gray
-}
+ }
 #footer {
    position:absolute;
    bottom:0;
@@ -241,7 +242,10 @@ body {
    height:60px;   /* Height of the footer */
    background:#6cf;
 }
-</div>
+#container {
+   height:100%;
+}
+        </div>
 <footer id="site-footer">
 <footer class="w3-center w3-black w3-padding-48 w3-xxlarge">
   <p> © 2018 Etinosa Obaseki - All Rights Reserved. </p>
