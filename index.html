@@ -89,12 +89,93 @@ body, html {
   <div style="overflow:scroll;">
       <iframe src="2pac.png" frameboarder="0" scrolling="auto" marginheight="0" width="600" height="620"></iframe>
     </div>
+<!-- Playground-->
+<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+      <script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+      <script>
 
+          if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+          
+          var camera, scene, renderer;
+          var geometry, material, mesh;
+
+          function setup() {
+
+              var W = window.innerWidth, H = window.innerHeight;
+              renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true } );
+  renderer.autoClearColor = false; THREE.WebGLRenderer();
+              renderer.setSize( W, H );
+              document.body.appendChild( renderer.domElement );
+
+              camera = new THREE.PerspectiveCamera( 20, W/H, 0.5, 6000 );
+              camera.position.z = 500;
+
+              scene = new THREE.Scene();
+
+              geometry = new THREE.TorusGeometry(98.07, 100.22, 40, 17, 12.57);
+              material = new THREE.MeshNormalMaterial;
+              mesh = new THREE.Mesh(geometry, material);
+              mesh.scale.x = mesh.scale.y = mesh.scale.z = 0.5;
+              mesh.position.y = 0;
+              mesh.rotation.x = 0;
+              mesh.rotation.y = 0;
+              mesh.rotation.z = 0;
+              scene.add(mesh);
+              bg = document.body.style;
+              bg.background = '#0';
+
+              scene.fog = new THREE.Fog( 0x000000, 993.55, 1 );
+
+              // paste your code from the geometryGUI here
+
+
+          }
+
+          function draw() {
+
+              requestAnimationFrame( draw );
+              mesh.rotation.x = Date.now() * 0.0002;
+              mesh.rotation.y = Date.now() * 0.0002;
+              mesh.rotation.z = Date.now() * 0.004;
+
+               mesh.position.x = Math.sin( Date.now() * 0.001 ) * 50;
+  mesh.rotation.z = Date.now() * 0.0005;
+
+              mesh.position.x = Math.sin( Date.now() * 0.001 ) * 50;
+              mesh.rotation.z = Date.now() * 0.0005;
+
+              particles.rotation.y = Date.now() * 0.00005;
+
+              var time = Date.now() * 0.0005;
+              h = ( 360 * ( 4.0 + time ) % 460 ) / 360;
+              material.color.setHSL( h, 0.7, 0.9 );
+              // experiment with code from the snippets menu here
+
+              renderer.render( scene, camera );
+
+          }
+
+          setup();geometry = new THREE.Geometry();
+              for ( i = 0; i < 5000; i ++ ) {
+                  var vertex = new THREE.Vector3();
+                  vertex.x = 1000 * Math.random() - 500;
+                  vertex.y = 1000 * Math.random() - 400;
+                  vertex.z = 1000 * Math.random() - 500;
+                  geometry.vertices.push( vertex );
+              }
+              material = new THREE.ParticleBasicMaterial( { size: 60, sizeAttenuation: false, transparent: true } );
+              material.color.setHex( 0xff00ff );
+              particles = new THREE.ParticleSystem( geometry, material );
+              particles.sortParticles = true;
+              scene.add( particles );
+          draw();
+
+      </script>
 <!-- Artist Statement-->
 <div class="w3-container" id="statement" style="padding-bottom:32px;">
   <div class="w3-content" style="max-width:700px">
     <h5 class="w3-center w3-padding-48"><span class="w3-tag w3-wide">ARTIST STATEMENT</span></h5>
-    <p>My artwork takes a critical view of sensitive materials and topics. I enjoy incorporating distress/glitch into my pieces because it's visually appealing in my opinion. When working on new pieces, I try not to focus on how I perceive myself emotionally while working so that I am cozy and clear-headed. Often times I find myself exploring random techniques and methods to attain an accurate representation of my thoughts through art. 
+    <p>My artwork takes a critical view of sensitive materials and topics. I enjoy incorporating distress/glitch into my pieces because it's visually appealing in my opinion. When working on new pieces, I try not to focus on how I perceive myself emotionally while working so that I am cozy and clear-headed. Often times I find myself exploring random techniques and methods to attain an accurate representation of my thoughts through art.
     </p>
 </div>
 
